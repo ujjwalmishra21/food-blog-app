@@ -1,0 +1,91 @@
+#header{
+    height:80px;
+    background-color:grey;
+}
+body{
+    background-color:khaki;
+}
+
+#searchbar{
+    margin-top: 18px;
+}
+#login{
+    transform: translateX(150px);
+    margin-top: 5px;
+}
+@media(max-width:300px){
+    #login{
+        transform: translateX(30px)
+    }
+}
+@media(min-width:300px) and (max-width:500px){
+    #login{
+        transform: translateX(68px)
+    }
+}
+@media(min-width:500px) and (max-width:720px){
+    #login{
+        transform: translateX(50px)
+    }
+}
+@media(min-width:720px) and (max-width:920px){
+    #login{
+        transform: translateX(50px)
+    }
+}
+
+
+#login_homepage{
+    height: 30px;
+    transform: translateY(20px)
+}
+.divider{
+    color:black;
+    height: 3px; 
+}
+.dropdown-menu{
+    background-color: lightslategray;
+}
+
+
+a{
+    color:white;
+    
+}
+
+#login_homepage{
+    background-color: wheat;
+}
+#carousel{
+    
+    /* height: 630px;
+    width: 1000px; */
+}
+#sidebar{
+
+  
+
+}
+.sidebar{
+    background-color:firebrick;
+    border-bottom: 1px solid lightslategray;
+}
+/* .sidebar:hover{
+    color:rgba(255, 68, 0, 0.562);
+} */
+#food_facts{
+    margin-bottom: -2px;
+}
+#footer{
+    
+    position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin-top: 0px;
+   
+    background-color: black;
+}
+.footer_icons{
+    transform: translateX(380px)
+}

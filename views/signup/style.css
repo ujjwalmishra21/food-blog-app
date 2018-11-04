@@ -1,0 +1,22 @@
+#header{
+    height:80px;
+    background-color:grey;
+}
+body{
+    background-color: khaki;
+}
+
+#footer{
+    margin-top: 30px;
+    
+    height:50px;
+    width:100%;
+    background-color: black;
+}
+a{
+    color:white;
+
+}
+.footer_icons{
+    transform: translateX(380px)
+}

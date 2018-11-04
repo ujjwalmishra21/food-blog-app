@@ -1,0 +1,59 @@
+#header{
+    height:80px;
+    background-color:grey;
+}
+body{
+    background-color: khaki;
+}
+#write_blog{
+    background-color: brown;
+    
+
+}
+#myTab{
+    margin-top:10px;
+}
+#post_blog{
+    margin-bottom: 10px;
+}
+#post_recipe{
+    margin-bottom: 10px;
+}
+#post{
+    margin-bottom: 10px;
+}
+#profile-photo{
+    border:1px solid black;
+}
+.card-body{
+    /* background-color:grey; */
+}
+#myposts{
+    border: 1px solid black;
+    height: 300px;
+    width:300px;
+    margin-bottom: 10px;
+
+
+}
+a{
+    color:white;
+    
+}
+.nav_top_profile{
+    margin-top: 20px;
+}
+#nav_bar{
+    background-color: grey;
+}
+#footer{
+   margin-top: 10px;
+   
+    
+    height:50px;
+    width:100%;
+    background-color: black;
+}
+.footer_icons{
+    transform: translateX(380px)
+}

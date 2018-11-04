@@ -1,0 +1,36 @@
+#header{
+    height:80px;
+    background-color:darkgray;
+}
+body{
+    background-color: khaki;
+    
+}
+#nav_bar{
+    background-color: grey;
+}
+a{
+    color: white;
+}
+
+.card{
+    margin: 20px;
+}
+#profile-post2{
+    /* background-color: brown; */
+    
+
+}
+#footer{
+    bottom:0;
+    
+    height:50px;
+    width:100%;
+    background-color: black;
+}
+.blog_body{
+    background-color: darkseagreen;
+}
+.footer_icons{
+    transform: translateX(380px)
+}
