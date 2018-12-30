@@ -155,7 +155,7 @@ app.get('/blogs',authenticate,(req,res)=>{
 
 
 app.post('/blogs',authenticate,(req,res)=>{
-  console.log(req.body)
+  console.log(req)
   var body = _.pick(req.body,['topic','short_description','description'])
   body._creator = req.user._id;
   body.post_by = req.user.firstname

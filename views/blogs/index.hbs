@@ -51,7 +51,7 @@
       <div class="col-9 col-md-7 col-sm-8 " id="write_blog2">
         <div class="collapse" id="post_a_blog">
           <div class="card card-body">
-            <form id="profile-post2" method="POST" action="/blogs" enctype="multipart/form-data">
+            <form id="profile-post2" method="POST" action="/blogs">
               <div class="form-group">
                 <label for="topic">Topic</label>
                 <input type="text" class="form-control" name="topic" placeholder="Enter your topic">
@@ -83,9 +83,9 @@
   </div>
   <div class="container-fluid">
     <div id="blog_block">
-
+      {{#each blogs}}
       <div class="row">
-        {{#each blogs}}
+
         <div class="col-11 col-md-2 col-sm-5">
 
         </div>
@@ -119,9 +119,10 @@
           </div>
 
         </div>
-        {{/each}}
+
       </div>
       <br>
+      {{/each}}
     </div>
   </div>
   <br>
