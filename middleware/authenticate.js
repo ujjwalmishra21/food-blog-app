@@ -1,8 +1,8 @@
 const {User} = require('../models/user')
 
 var authenticate = (req, res, next) => {
-  console.log(req.body)
-  var token = req.header('x-auth');
+  // console.log(req.body)
+  var token = req.cookies['x-auth'];
   
   User.findByToken(token).then((user)=>{
     
@@ -14,7 +14,7 @@ var authenticate = (req, res, next) => {
     next();
 
   }).catch((e)=>{
-    res.status(401).send();
+    res.status(401).send(`<h1>401: Unauthorized Access</h1>`);
   })
 }
 

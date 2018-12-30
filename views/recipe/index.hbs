@@ -21,16 +21,15 @@
 
 <body>
   <div class="container-fluid">
-    <div id="header">
-    </div>
-    <br> {{> navbar}}
+    {{> header}} {{> navbar}}
     <div class="row">
       <div class="col-10 col-md-1 col-sm-5">
 
       </div>
       <div class="col-8 col-md-2 col-sm-3 " id="write_recipe1">
         <p>
-          <a class="btn btn-light" data-toggle="collapse" href="#post_a_recipe" role="button" aria-expanded="false" aria-controls="post_a_recipe">
+          <a class="btn btn-light" data-toggle="collapse" href="#post_a_recipe" role="button" aria-expanded="false"
+            aria-controls="post_a_recipe">
             Post A Recipe
           </a>
 
@@ -53,31 +52,31 @@
       <div class="col-8 col-md-7 col-sm-9 " id="write_recipe2">
         <div class="collapse" id="post_a_recipe">
           <div class="card card-body">
-            <form id="profile-post2">
+            <form id="profile-post2" method="POST" action="/recipe" enctype="multipart/form-data">
               <div class="form-group">
                 <label for="recipe_name">Recipe Name</label>
-                <input type="text" class="form-control" id="recipe_name" placeholder="Enter your recipe name">
+                <input type="text" class="form-control" name="recipe_name" placeholder="Enter your recipe name">
               </div>
               <div class="form-group">
                 <label for="short_description">Short Description</label>
-                <input type="text" class="form-control" id="short_description" placeholder="Enter a short description about your recipe">
+                <input type="text" class="form-control" name="short_description" placeholder="Enter a short description about your recipe">
               </div>
               <div class="form-group">
                 <label for="ingredients">Ingredients</label>
-                <textarea class="form-control" id="ingredients" rows="3"></textarea>
+                <textarea class="form-control" name="ingredients" rows="3"></textarea>
               </div>
               <div class="form-group">
                 <label for="procedures">Procedures</label>
-                <textarea class="form-control" id="procedures" rows="3"></textarea>
+                <textarea class="form-control" name="procedures" rows="3"></textarea>
               </div>
-              <!-- <div class="input-group mb-3">
-                                      
-                                      <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="file_input_recipe" required>
-                                        <label class="custom-file-label" for="file_input_recipe">Choose video or photo</label>
-                                      </div>
-                                    </div> -->
-              <button type="button" class="btn btn-primary btn-sm " id="post_recipe">Post</button>
+              <div class="input-group mb-3">
+
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" name="image" required>
+                  <label class="custom-file-label" for="file_input_recipe">Choose video or photo</label>
+                </div>
+              </div>
+              <input type="submit" class="btn btn-primary btn-sm " id="post_recipe" value="Post">
               <br>
             </form>
 
@@ -88,76 +87,34 @@
   </div>
   <div class="container-fluid">
     <div class="row">
-      <div class="card-group" id="recipe_blocks">
-        <div class="col-9 col-lg-4 col-md-6 col-sm-9">
-          <div class="card">
-            <a href="#"><img class="card-img-top" src="photos/pizza.jpg" alt="Card image cap"></a>
-            <div class="card-body">
-              <h5 class="card-title">Recipe1</h5>
-              <p class="card-text">
-                <blockquote><em>by ABC</em></blockquote>
-              </p>
-              <p class="card-text">Short Description</p>
 
+      <div class="card-group">
+
+        {{#each recipe}}
+
+        <div class="col-9 col-lg-4 col-md-6 col-sm-9 p-3">
+          <div class="card ">
+            <a href="#"><img class="card-img-top" src="{{image}}" alt="Card image cap"></a>
+            <div class="card-body">
+              <h5 class="card-title">{{recipe_name}}</h5>
+              <p class="card-text">
+                <em>by {{post_by}}</em>
+              </p>
+              <p class="card-text">{{ingredients}}</p>
+              <p class="card-text">{{procedures}}</p>
             </div>
             <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
+              {{!-- <small class="text-muted">Posted {{post_at}} ago</small> --}}
             </div>
           </div>
         </div>
-        <div class="col-9 col-lg-4 col-md-6 col-sm-9">
-          <div class="card">
-            <a href="#"><img class="card-img-top" src="photos/pizza.jpg" alt="Card image cap"></a>
-            <div class="card-body">
-              <h5 class="card-title">Recipe2</h5>
-              <p class="card-text">
-                <blockquote><em>by ABC</em></blockquote>
-              </p>
-              <p class="card-text">Short Description</p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-          </div>
-        </div>
-        <div class="col-9 col-lg-4 col-md-6 col-sm-9">
-          <div class="card">
-            <a href="#"><img class="card-img-top" src="photos/pizza.jpg" alt="Card image cap"></a>
-            <div class="card-body">
-              <h5 class="card-title">Recipe3</h5>
-              <p class="card-text">
-                <blockquote><em>by ABC</em></blockquote>
-              </p>
-              <p class="card-text">Short Description</p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-          </div>
-        </div>
-
-
-
-        <div class="col-9 col-lg-4 col-md-6 col-sm-9">
-          <div class="card">
-            <a href="#"><img class="card-img-top" src="photos/pizza.jpg" alt="Card image cap"></a>
-            <div class="card-body">
-              <h5 class="card-title">Recipe4</h5>
-              <p class="card-text">
-                <blockquote><em>by ABC</em></blockquote>
-              </p>
-              <p class="card-text">Short Description</p>
-
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-          </div>
-        </div>
+        {{/each}}
       </div>
+
     </div>
   </div>
-  {{> footer}}
+  <br>
+  <br><br> {{> footer}}
 </body>
 
 </html>

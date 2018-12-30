@@ -3,7 +3,7 @@
     background-color:darkgray;
 }
 body{
-    background-color: khaki;
+    background-color: lightblue;
     
 }
 #nav_bar{
@@ -31,3 +31,4 @@ a{
 .footer_icons{
     transform: translateX(380px)
 }
+

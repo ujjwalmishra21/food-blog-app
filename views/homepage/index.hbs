@@ -22,7 +22,7 @@
   <div class="container-fluid">
     <div class="row" id="header">
       <div class="col-1 col-md-3 col-sm-4 picture">
-        <p>{{user.email}}</p>
+        <p>Hey <b>{{user.firstname}}</b></p>
       </div>
       <div class="col-3 col-md-4 col-sm-4 input-group mb-3" id="searchbar">
         <!-- <img src="https://png.icons8.com/ios/50/333333/google-web-search.png" height="15px" width="15px"> -->
@@ -36,13 +36,12 @@
 
 
       </div>
+
       <div class="col-2 col-sm-2 col-md-2 btn-group" id="logout">
-        <ul class="nav justify-content-end">
-          <li class="nav-item" id="logout">
-            <a class="nav-link" href="/logout">Logout</a>
-          </li>
-        </ul>
+
+        {{> header}}
       </div>
+
     </div>
 
     <br>

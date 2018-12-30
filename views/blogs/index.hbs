@@ -20,9 +20,7 @@
 
 <body>
   <div class="container-fluid">
-    <div id="header">
-    </div>
-    {{> navbar}}
+    {{> header}} {{> navbar}}
 
 
     <div class="row">
@@ -31,7 +29,8 @@
       </div>
       <div class="col-8 col-md-2 col-sm-3 " id="write_blog1">
         <p>
-          <a class="btn btn-light" data-toggle="collapse" href="#post_a_blog" role="button" aria-expanded="false" aria-controls="post_a_blog">
+          <a class="btn btn-light" data-toggle="collapse" href="#post_a_blog" role="button" aria-expanded="false"
+            aria-controls="post_a_blog">
             Post A Blog
           </a>
 
@@ -52,18 +51,18 @@
       <div class="col-9 col-md-7 col-sm-8 " id="write_blog2">
         <div class="collapse" id="post_a_blog">
           <div class="card card-body">
-            <form id="profile-post2">
+            <form id="profile-post2" method="POST" action="/blogs" enctype="multipart/form-data">
               <div class="form-group">
                 <label for="topic">Topic</label>
-                <input type="text" class="form-control" id="topic" placeholder="Enter your topic">
+                <input type="text" class="form-control" name="topic" placeholder="Enter your topic">
               </div>
               <div class="form-group">
                 <label for="short_description">Short Description</label>
-                <input type="text" class="form-control" id="short_description" placeholder="Enter a short description about your topic">
+                <input type="text" class="form-control" name="short_description" placeholder="Enter a short description about your topic">
               </div>
               <div class="form-group">
                 <label for="description">Description</label>
-                <textarea class="form-control" id="description" rows="3"></textarea>
+                <textarea class="form-control" name="description" rows="3"></textarea>
               </div>
 
               <!-- <div class="input-group mb-3">
@@ -73,8 +72,8 @@
                                         <label class="custom-file-label" for="file_input_recipe">Choose video or photo</label>
                                       </div>
                                     </div> -->
-              <button type="button" class="btn btn-primary btn-sm " id="post_blog">Post</button>
-              <br>
+              <input type="submit" class="btn btn-primary btn-sm " id="post_blog" value="Post">
+
             </form>
 
           </div>
@@ -84,16 +83,22 @@
   </div>
   <div class="container-fluid">
     <div id="blog_block">
+
       <div class="row">
-        <div class="col-11 col-md-2 col-sm-5"></div>
+        {{#each blogs}}
+        <div class="col-11 col-md-2 col-sm-5">
+
+        </div>
         <div class="col-11 col-md-8 col-sm-9 blog_post">
           <div class="card text-center">
             <div class="card-header">
-              Name
+              {{topic}}
             </div>
             <div class="card-body blog_body">
-              <h5 class="card-title">Topic</h5>
-              <p class="card-text">Short Description</p>
+              <p class="card-text">
+                <em>by {{post_by}}</em>
+              </p>
+              <p class="card-text">{{short_description}}</p>
               <p>
                 <a data-toggle="collapse" href="#more_description" aria-expanded="false" aria-controls="more_description">
                   Click for more
@@ -102,24 +107,25 @@
               </p>
               <div class="collapse" id="more_description">
                 <div class="card card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica,
-                  craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                  {{description}}
                 </div>
               </div>
             </div>
 
 
             <div class="card-footer text-muted">
-              2 days ago
+              Posted 2 ago
             </div>
           </div>
 
         </div>
+        {{/each}}
       </div>
+      <br>
     </div>
   </div>
-
-  {{> footer}}
+  <br>
+  <br> {{> footer}}
 </body>
 
 </html>

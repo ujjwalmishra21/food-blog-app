@@ -21,25 +21,13 @@
 
 <body>
   <div class="container-fluid">
-    <div id="header">
-      <ul class="nav justify-content-end" id="nav_bar_profile">
-        <li class="nav-item nav_top_profile">
-          <a class="nav-link" href="#">Edit Profile</a>
-        </li>
-        <li class="nav-item nav_top_profile">
-          <a class="nav-link" href="#">Log Out</a>
-        </li>
-
-      </ul>
-
-    </div>
-    <br> {{> navbar}}
+    {{> header}} {{> navbar}}
     <br>
     <div class="row">
       <div class="col-10 col-md-3 col-sm-5">
-        <h2>Full Name</h2>
-        <div class="card" style="width: 300px;">
-          <img class="card-img-top" src="photos/boy.png" alt="profile-photo" id="profile-photo">
+        <h2>{{user.firstname}}</h2>
+        <div class="card" style="width: auto;">
+          <img class="card-img-top" src="./photos/boy.png" alt="profile-photo" id="profile-photo">
           <div class="card-body">
             <p class="card-text" id="age">Age</p>
             <p class="card-text" id="gender">Gender</p>
@@ -54,29 +42,31 @@
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item">
 
-            <a class="nav-link active" id="blog-tab" data-toggle="tab" href="#blog" role="tab" aria-controls="blog" aria-selected="true">Blog</a>
+            <a class="nav-link active" id="blog-tab" data-toggle="tab" href="#blog" role="tab" aria-controls="blog"
+              aria-selected="true">Blog</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="recipe-tab" data-toggle="tab" href="#recipe" role="tab" aria-controls="recipe" aria-selected="false">Recipe</a>
+            <a class="nav-link" id="recipe-tab" data-toggle="tab" href="#recipe" role="tab" aria-controls="recipe"
+              aria-selected="false">Recipe</a>
           </li>
 
         </ul>
         <div class="tab-content" id="myTabContent">
           <div class="tab-pane fade show active" id="blog" role="tabpanel" aria-labelledby="blog-tab">
-            <form id="profile-post1">
+            <form id="profile-post1" method="POST" action="/blogs">
               <div class="form-group">
                 <label for="topic">Topic</label>
-                <input type="text" class="form-control" id="topic" placeholder="Enter the topic">
+                <input type="text" class="form-control" name="topic" id="topic" placeholder="Enter the topic">
               </div>
               <br>
               <div class="form-group">
                 <label for="s_description">Short Description</label>
-                <input type="text" class="form-control" id="s_description" rows="3"></textarea>
+                <input type="text" class="form-control" name="short_description" id="s_description" rows="3"></textarea>
               </div>
               <br>
               <div class="form-group">
                 <label for="description">Description</label>
-                <textarea class="form-control" id="description" rows="3"></textarea>
+                <textarea class="form-control" name="description" id="description" rows="3"></textarea>
               </div>
               <br>
               <!-- <div class="input-group mb-3">
@@ -97,32 +87,31 @@
           </div>
           <div class="tab-pane fade" id="recipe" role="tabpanel" aria-labelledby="recipe-tab">
 
-            <form id="profile-post2">
+            <form id="profile-post2" method="POST" action="/recipe" enctype="multipart/form-data">
               <div class="form-group">
                 <label for="recipe_name">Recipe Name</label>
-                <input type="text" class="form-control" id="recipe_name" placeholder="Enter your recipe name" required>
-              </div>
-              <div class="form-group">
-                <label for="short_description">Short Description</label>
-                <input type="text" class="form-control" id="short_description" placeholder="Enter a short description about your recipe"
+                <input type="text" class="form-control" name="recipe_name" id="recipe_name" placeholder="Enter your recipe name"
                   required>
               </div>
               <div class="form-group">
+                <label for="ingredients">Short Description</label>
+                <textarea class="form-control" name="short_description" id="short_description" rows="3" required></textarea>
+              </div>
+              <div class="form-group">
                 <label for="ingredients">Ingredients</label>
-                <textarea class="form-control" id="ingredients" rows="3" required></textarea>
+                <textarea class="form-control" name="ingredients" id="ingredients" rows="3" required></textarea>
               </div>
               <div class="form-group">
                 <label for="procedures">Procedures</label>
-                <textarea class="form-control" id="procedures" rows="3" required></textarea>
+                <textarea class="form-control" name="procedures" id="procedures" rows="3" required></textarea>
               </div>
-              <!-- <div class="input-group mb-3">
-                                
-                                <div class="custom-file">
-                                  <input type="file" class="custom-file-input" id="file_input_recipe" required>
-                                  <label class="custom-file-label" for="file_input_recipe">Choose video or photo</label>
-                                </div>
-                              </div> -->
-              <button type="submit" class="btn btn-default btn-sm " id="post_recipe">Post</button>
+              <div class="form-group">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="file_input_recipe" name="image" required>
+                  <label class="custom-file-label" for="file_input_recipe">Choose video or photo</label>
+                </div>
+              </div>
+              <input type="submit" class="btn btn-default btn-sm " id="post_recipe" value="Post">
 
             </form>
 
@@ -155,18 +144,21 @@
           </div>
 
         </div>
-        <div class="col-8 col-md-7 col-sm-7 recipe_post">
+        <div class="col-8 col-md-7 col-sm-7 p-3">
 
           <h3>Your Blogs &amp; Recipe</h3>
+          {{#each recipe}}
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Recipe</h5>
-              <p class="card-text">Short Description</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <h5 class="card-title">{{recipe_name}}</h5>
+              <p><i>{{short_description}}</i></p>
+              <p class="card-text">{{ingredients}}</p>
+              <p class="card-text">{{procedures}}</p>
+              <p class="card-text"><small class="text-muted"></small></p>
             </div>
-            <a href="#"><img class="card-img-bottom" src="photos/boy.png" height="350px" width="auto" alt="Card image cap"></a>
+            <a href="#"><img class="card-img-bottom" src="./photos/boy.png" height="350px" width="auto" alt="Card image cap"></a>
           </div>
-
+          <br> {{/each}}
 
         </div>
       </div>
@@ -178,21 +170,25 @@
 
 
         <div class="col-8 col-md-7 col-sm-7 blog_post">
+          {{#each blogs}}
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Blogs</h5>
-              <p class="card-text">Content</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <h5 class="card-title">{{topic}}</h5>
+              <p class="card-text">{{short_description}}</p>
+              <p class="card-text">{{description}}</p>
+              <p class="card-text"><small class="text-muted"></small></p>
             </div>
-
+            <a href="#"><img class="card-img-bottom" src="./photos/boy.png" height="350px" width="auto" alt="Card image cap"></a>
           </div>
+          <br> {{/each}}
 
         </div>
       </div>
     </div>
-  </div>
 
-  {{> footer}}
+
+    {{> footer}}
+  </div>
 
 </body>
 
