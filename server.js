@@ -6,26 +6,34 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const multer = require('multer')
-const storage = multer.diskStorage({
-  destination:function(req, file, callback) {
-    callback(null, './uploads/')
-  },
-  filename:function (req, file, callback) {
-    callback(null, new Date().toLocaleDateString() + '--' + file.originalname)
-  }
-})
-const fileFilter = (req, file, callback)=>{
-  if(file.mimetype==='image/jpeg' || file.mimetype==='image/png'){
-    callback(null, true)
-  }else{
-    callback(null, false)
-  }
-}
-const upload = multer({storage,
+const sharp = require('sharp')
+const path = require('path')
+// const storage = multer({
+//   destination:function(req, file, callback) {
+//     callback(null, './uploads/')
+//   },
+//   filename:function (req, file, callback) {
+//     callback(null, new Date().toLocaleDateString() + '--' + file.originalname)
+//   }
+// })
+// const fileFilter = (req, file, callback)=>{
+//   if(file.mimetype==='image/jpeg' || file.mimetype==='image/png'){
+//     callback(null, true)
+//   }else{
+//     callback(null, false)
+//   }
+// }
+const upload = multer({
   limits:{
   fileSize: 1024*1024*5
 },
-fileFilter
+  fileFilter(req,file,cb){
+    if(file.mimetype==='image/jpeg' || file.mimetype==='image/png'){
+          cb(null, true)
+        }else{
+          cb(null, false)
+        }
+  }
 })
 const port = process.env.PORT || 3232
 // var API_KEY = '10606262-677d249d95f5e20d22592a1bc'
@@ -124,7 +132,7 @@ app.get('/profile',authenticate,(req,res)=>{
     Blogs.find({_creator:req.user._id}).then((blogs)=>{
       var user = _.pick(req.user,['firstname','lastname','dob'])
       
-      
+    
       res.render('profile/index',{recipe,blogs,user})
     })
   }).catch((e)=>{
@@ -136,7 +144,10 @@ app.get('/recipe',authenticate,(req,res)=>{
   
   Recipe.find({_creator:req.user._id}).then((recipe)=>{
     var user = _.pick(req.user,['firstname','lastname','dob'])
-      
+    var len = recipe.length
+    for(var i=0;i<len;i++){
+        recipe[i].image = recipe[i].image.toString('base64')
+    }
     res.render('recipe/index',{recipe,user})
   }).catch((e)=>{
     res.status(404).send(`<h1>404: Page not found</h1>`)
@@ -161,7 +172,7 @@ app.post('/blogs',authenticate,(req,res)=>{
   body._creator = req.user._id;
   body.post_by = req.user.firstname
   // body.post_on = Date.now()
-  console.log(body.topic)
+  
   var blog = new Blogs(body)
 
   blog.save().then(()=>{
@@ -177,7 +188,7 @@ app.post('/blogs',authenticate,(req,res)=>{
   
 })
 
-app.post('/recipe',[authenticate, upload.single('image')],(req,res)=>{
+app.post('/recipe',authenticate, upload.single('image'),(req,res)=>{
   if(req.file === undefined){
     return res.send(`<script>alert('File is unavailable or not supported')</script>`)
     
@@ -186,16 +197,17 @@ app.post('/recipe',[authenticate, upload.single('image')],(req,res)=>{
   var body = _.pick(req.body,['recipe_name','short_description','ingredients','procedures'])
   body._creator = req.user._id;
   body.post_by = req.user.firstname;
-  body.image = req.file.path;
+  // var buffer = sharp(req.file.buffer).buffer.resize(300,300).png().toBuffer();
+
+  body.image = req.file.buffer;
   // body.post_on = new Date().now()
   var recipe = new Recipe(body)
  
-  recipe.save().then(()=>{
-    
+  recipe.save().then(()=>{    
     res.redirect('/recipe')
     
   }).catch((e)=>{
-    res.status(404).send(`<h1>404: Page not found</h1>`)
+    res.status(404).send(`<h1>404: Page not found </h1>`)
   })
   
 })
