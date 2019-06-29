@@ -62,7 +62,7 @@ a{
     width: 1000px; */
 }
 #sidebar{
-
+   
   
 
 }
@@ -74,12 +74,12 @@ a{
     color:rgba(255, 68, 0, 0.562);
 } */
 #food_facts{
-    margin-bottom: -2px;
+
 }
 #footer{
     
-    position: absolute;
-  right: 0;
+    position: fixed;
+  width: 100%;
   bottom: 0;
   left: 0;
   margin-top: 0px;

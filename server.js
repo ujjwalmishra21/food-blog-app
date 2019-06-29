@@ -27,6 +27,7 @@ const upload = multer({storage,
 },
 fileFilter
 })
+const port = process.env.PORT || 3232
 // var API_KEY = '10606262-677d249d95f5e20d22592a1bc'
 
 // var URL = "https://pixabay.com/api/?key="+API_KEY+"&q="+encodeURIComponent('red roses');
@@ -210,6 +211,6 @@ app.get('/logout',authenticate,(req,res)=>{
 })
 
 
-app.listen(3232, ()=>{
-  console.log('Server started at PORT 3232')
+app.listen(port, ()=>{
+  console.log('Server started at port ' + port)
 })
