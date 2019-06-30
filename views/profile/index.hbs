@@ -149,6 +149,7 @@
           <h3>Your Blogs &amp; Recipe</h3>
           {{#each recipe}}
           <div class="card">
+            
             <div class="card-body">
               <h5 class="card-title">{{recipe_name}}</h5>
               <p><i>{{short_description}}</i></p>
@@ -156,7 +157,9 @@
               <p class="card-text">{{procedures}}</p>
               <p class="card-text"><small class="text-muted"></small></p>
             </div>
-            <a href="#"><img class="card-img-bottom" src="./photos/boy.png" height="350px" width="auto" alt="Card image cap"></a>
+            <div style="background-color:black;">
+               <a href="#"><img class="card-img-top" src="data:image/png;base64,{{image}}" style=" display: block; margin-left: auto; margin-right: auto; width: 50%;"  height="300px" width="300px" alt="Card image cap"></a>
+            </div>
           </div>
           <br> {{/each}}
 
@@ -178,7 +181,7 @@
               <p class="card-text">{{description}}</p>
               <p class="card-text"><small class="text-muted"></small></p>
             </div>
-            <a href="#"><img class="card-img-bottom" src="./photos/boy.png" height="350px" width="auto" alt="Card image cap"></a>
+            {{!-- <a href="#"><img class="card-img-bottom" src="./photos/boy.png" height="350px" width="auto" alt="Card image cap"></a> --}}
           </div>
           <br> {{/each}}
 

@@ -17,10 +17,10 @@ body{
     margin-bottom: 10px;
 }
 #post_recipe{
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 #post{
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 #profile-photo{
     border:1px solid black;
@@ -56,3 +56,4 @@ a{
 .footer_icons{
     transform: translateX(380px)
 }
+

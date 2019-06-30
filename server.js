@@ -131,7 +131,10 @@ app.get('/profile',authenticate,(req,res)=>{
   Recipe.find({_creator:req.user._id}).then((recipe)=>{
     Blogs.find({_creator:req.user._id}).then((blogs)=>{
       var user = _.pick(req.user,['firstname','lastname','dob'])
-      
+      var len = recipe.length
+      for(var i=0;i<len;i++){
+          recipe[i].image = recipe[i].image.toString('base64')
+      }
     
       res.render('profile/index',{recipe,blogs,user})
     })
