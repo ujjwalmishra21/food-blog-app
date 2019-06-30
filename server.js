@@ -204,7 +204,7 @@ app.post('/recipe',authenticate, upload.single('image'),(req,res)=>{
   var recipe = new Recipe(body)
  
   recipe.save().then(()=>{    
-    res.redirect('/recipe')
+    res.redirect('/recipe') 
     
   }).catch((e)=>{
     res.status(404).send(`<h1>404: Page not found </h1>`)
@@ -221,6 +221,7 @@ app.get('/logout',authenticate,(req,res)=>{
     res.status(404).send(`<h1>404: Page not found</h1>`)
   })
 })
+
 
 
 app.listen(port, ()=>{

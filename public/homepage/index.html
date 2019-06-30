@@ -27,11 +27,11 @@
       <div class="col-3 col-md-4 col-sm-4 input-group mb-3" id="searchbar">
         <!-- <img src="https://png.icons8.com/ios/50/333333/google-web-search.png" height="15px" width="15px"> -->
 
-
+<!-- 
         <input type="text" id="search" class="form-control" style="width: auto;height: 35px;" placeholder="Search">
 
         <button id="searchbtn" class="btn btn-light" style="width: 35px;height: 35px; margin-left: 3px;"><img src="https://png.icons8.com/ios/50/333333/google-web-search.png"
-            height="30px" width="30px" style="margin-left:-10px;margin-top:-7px;"> </button>
+            height="30px" width="30px" style="margin-left:-10px;margin-top:-7px;"> </button> -->
 
 
 
@@ -48,16 +48,16 @@
 
     <br>
 
-    <div class="row">
-      <div class="col-10 col-md-8 col-sm-8  ">
+    <div class="row" id="carousel-outer">
+      <div class="col-8 col-md-8 col-sm-12 " >
         <div id="carousel" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
+          <!-- <ol class="carousel-indicators">
             <li data-target="#carousel" data-slide-to="0" class="active"></li>
             <li data-target="#carousel" data-slide-to="1"></li>
             <li data-target="#carousel" data-slide-to="2"></li>
             <li data-target="#carousel" data-slide-to="3"></li>
             <li data-target="#carousel" data-slide-to="4"></li>
-          </ol>
+          </ol> -->
           <div class="carousel-inner">
             <div class="carousel-item active">
               <img class="d-block w-100" src="photos/pizza.jpg" alt="First slide">
@@ -132,14 +132,14 @@
           <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
             <div class="d-flex w-100 justify-content-between food_facts">
               <h5 class="mb-1">Apple</h5>
-              <small>3 days ago</small>
+              <!-- <small>3 days ago</small> -->
             </div>
             <p class="mb-1">Apples belong to the rose family, as do pears and plums.</p>
           </a>
           <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between food_facts">
               <h5 class="mb-1">Olive Oil</h5>
-              <small class="text-muted">3 days ago</small>
+              <!-- <small class="text-muted">3 days ago</small> -->
             </div>
             <p class="mb-1">About 70% of olive oil being sold is not actually pure olive oil.</p>
             <!-- <small class="text-muted">Donec id elit non mi porta.</small> -->
@@ -147,7 +147,7 @@
           <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between food_facts">
               <h5 class="mb-1">Dunkin' Donuts</h5>
-              <small class="text-muted">3 days ago</small>
+              <!-- <small class="text-muted">3 days ago</small> -->
             </div>
             <p class="mb-1">The Dunkin' Donuts in South Korea offer doughnut flavors such as Kimchi Croquette and Glazed
               Garlic.
@@ -155,27 +155,102 @@
             <!-- <small class="text-muted">Donec id elit non mi porta.</small> -->
           </a>
         </div>
-
-
+        
 
       </div>
 
     </div>
 
   </div>
-
+ 
+  
+  
+  <div class="modal fade" id="complaints" tabindex="-1" role="dialog" aria-labelledby="complaintsLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="complaintsLabel">Complaint</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="name" class="col-form-label">Name</label>
+              <input type="text" class="form-control" name="name" id="name">
+            </div>
+            <div class="form-group">
+              <label for="subject" class="col-form-label">Subject</label>
+              <input type-"text" class="form-control" name="subject" id="subject">
+            </div>
+            <div class="form-group">
+                <label for="description" class="col-form-label">Description</label>
+                <textarea class="form-control" name="description" id="description"></textarea>
+              </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+          <button type="button" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+  <div class="modal fade" id="contactus" tabindex="-1" role="dialog" aria-labelledby="contactusLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="contactusLabel">Contact Us</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="rateus" tabindex="-1" role="dialog" aria-labelledby="rateusLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="rateusLabel">Rate Us</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
   <div id="footer">
-
+      
     <ul class="nav justify-content-center bottomfooter">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Contact Us</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Suggestions</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Complaints</a>
-      </li>
+      <button class="nav-item" style="margin: 8px"  data-toggle="modal" data-target="#contactus">
+        Contact Us
+      </button>
+      <button class="nav-item" style="margin: 8px"  data-toggle="modal" data-target="#rateus">
+        Rate Us
+      </button>
+      
+
+
+      <button class="nav-item" style="margin: 10px"  data-toggle="modal" data-target="#complaints" >
+        
+        Complaints
+      </button>
       <li class="nav-item">
         <a class="nav-link" href="#"><img src="https://png.icons8.com/color/50/333333/facebook.png" width="auto" height="40px"
             class="footer_icons"></a>

@@ -1,16 +1,87 @@
-<div id="footer" style="position:static;">
+ 
+  <div class="modal fade" id="complaints" tabindex="-1" role="dialog" aria-labelledby="complaintsLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="complaintsLabel">Complaint</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="name" class="col-form-label">Name</label>
+              <input type="text" class="form-control" name="name" id="name">
+            </div>
+            <div class="form-group">
+              <label for="subject" class="col-form-label">Subject</label>
+              <input type-"text" class="form-control" name="subject" id="subject">
+            </div>
+            <div class="form-group">
+                <label for="description" class="col-form-label">Description</label>
+                <textarea class="form-control" name="description" id="description"></textarea>
+              </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+          <button type="button" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+  <div class="modal fade" id="contactus" tabindex="-1" role="dialog" aria-labelledby="contactusLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="contactusLabel">Contact Us</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="rateus" tabindex="-1" role="dialog" aria-labelledby="rateusLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="rateusLabel">Rate Us</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+<div id="footer">
 
   <ul class="nav justify-content-center">
-
-    <li class="nav-item">
-      <a class="nav-link active" href="#">Contact Us</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Suggestions</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Complaints</a>
-    </li>
+ <button class="nav-item" style="margin: 8px"  data-toggle="modal" data-target="#contactus">
+        Contact Us
+      </button>
+      <button class="nav-item" style="margin: 8px"  data-toggle="modal" data-target="#rateus">
+        Rate Us
+      </button>
+      <button class="nav-item" style="margin: 10px"  data-toggle="modal" data-target="#complaints" >
+        Complaints
+      </button>
     <li class="nav-item">
       <a class="nav-link" href="#"><img src="https://png.icons8.com/color/50/333333/facebook.png" width="auto" height="40px"
           class="footer_icons"></a>

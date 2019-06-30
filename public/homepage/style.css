@@ -17,6 +17,7 @@ body{
     #login{
         transform: translateX(30px)
     }
+
 }
 @media(min-width:300px) and (max-width:500px){
     #login{
@@ -32,6 +33,7 @@ body{
     #login{
         transform: translateX(50px)
     }
+    
 }
 
 
@@ -47,7 +49,6 @@ body{
     background-color: lightslategray;
 }
 
-
 a{
     color:white;
     
@@ -56,10 +57,11 @@ a{
 #login_homepage{
     background-color: wheat;
 }
-#carousel{
+#carousel-outer{
     
     /* height: 630px;
     width: 1000px; */
+    
 }
 #sidebar{
    
@@ -82,10 +84,16 @@ a{
   width: 100%;
   bottom: 0;
   left: 0;
-  margin-top: 0px;
-   
-    background-color: black;
+  
+  background-color: black;
 }
 .footer_icons{
     transform: translateX(380px)
+}
+#complaints{
+    z-index: 9999 ;
+    
+}
+#carousel{
+    z-index:0 ;
 }
