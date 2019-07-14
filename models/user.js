@@ -35,6 +35,18 @@ var UserSchema = new mongoose.Schema({
     type:Date,
     required:true
   },
+  gender:{
+    type:String,
+    required:true
+  },
+  country:{
+    type:String,
+    required:true
+  },
+  photo:{
+    type:Buffer,
+    required:true
+  },
  
   tokens:[{
     access:{

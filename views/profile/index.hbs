@@ -27,12 +27,13 @@
       <div class="col-10 col-md-3 col-sm-5">
         <h2>{{user.firstname}}</h2>
         <div class="card" style="width: auto;">
-          <img class="card-img-top" src="./photos/boy.png" alt="profile-photo" id="profile-photo">
+          <img class="card-img-top" src="data:image/png;base64,{{user.photo}}" alt="profile-photo" id="profile-photo">
           <div class="card-body">
-            <p class="card-text" id="age">Age</p>
-            <p class="card-text" id="gender">Gender</p>
-            <p class="card-text" id="country">Country</p>
+            {{!-- <p class="card-text" id="age"></p> --}}
+            <p class="card-text" id="gender">{{user.gender}}</p>
+            <p class="card-text" id="country">{{user.country}}</p>
           </div>
+           {{!-- <a href="#"><img class="card-img-top" src="data:image/png;base64,{{user.photo}}" style=" display: block; margin-left: auto; margin-right: auto; width: 50%;"  height="300px" width="300px" alt="Card image cap"></a> --}}
         </div>
 
 
@@ -126,7 +127,7 @@
     <!-- </div>
   <div class="container-fluid"> -->
     <br>
-    <div id="blogs_recipes">
+    {{!-- <div id="blogs_recipes">
       <div class="row">
         <div class="col-10 col-md-3 col-sm-5">
           <div id="myposts" class="carousel slide" data-ride="carousel">
@@ -143,7 +144,7 @@
             </div>
           </div>
 
-        </div>
+        </div> --}}
         <div class="col-8 col-md-7 col-sm-7 p-3">
 
           <h3>Your Blogs &amp; Recipe</h3>

@@ -26,7 +26,7 @@
         </a>
 
     </div>
-    <form class="container" id="signupform" method="POST" action="/signup">
+    <form class="container" id="signupform" method="POST" action="/signup" enctype="multipart/form-data">
         <h3>Basic Information</h3>
         <div class="form-group">
             <label for="fname">Full Name</label>
@@ -56,6 +56,39 @@
             <label for="password">Password</label>
             <input type="password" id="password" name="password" class="form-control form-control-sm" minlength="8" style="width:35%" required>
         </div>
+    <div class="form-group">
+        <label for="gender">Gender</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="gender" id="male_radio" value="MALE" checked>
+            <label class="form-check-label" for="male_radio">
+                MALE    
+            </label> 
+        </div>
+  
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="gender" id="female_radio" value="FEMALE">
+            <label class="form-check-label" for="female_radio">
+                FEMALE   
+            </label> 
+        </div>
+         <div class="form-check">
+            <input class="form-check-input" type="radio" name="gender" id="transgender_radio" value="TRANSGENDER">
+            <label class="form-check-label" for="transgender_radio">
+                TRANSGENDER   
+            </label> 
+        </div>
+    </div>
+         <div class="form-group">
+            <label for="country">Country</label>
+            <input type="text" id="country" name="country" class="form-control form-control-sm" minlength="3" style="width:35%" required>
+        </div>
+         <div class="input-group mb-3">
+
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" name="photo" required>
+                  <label class="custom-file-label" for="file_input">Choose photo</label>
+                </div>
+              </div>
         {{!--
         <div class="form-group">
             <label for="pass">Re-Enter Password</label>
