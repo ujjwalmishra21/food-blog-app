@@ -4,6 +4,7 @@
 }
 body{
     background-color:lightblue;
+    position: relative;
 }
 
 #searchbar{
@@ -77,12 +78,10 @@ a{
     margin-bottom: -2px;
 }
 #footer{
-    
-    position: fixed;
-    width: 100%;
+    position: absolute;
     bottom: 0;
-    left: 0;
-    margin-top: 0px;
+    width: 100%;
+    height: 2.5rem;
    
     background-color: black;
 }
