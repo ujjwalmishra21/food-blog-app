@@ -36,7 +36,7 @@ const upload = multer({
   }
 })
 const port = process.env.PORT || 3232
-// var API_KEY = '10606262-677d249d95f5e20d22592a1bc'
+
 
 // var URL = "https://pixabay.com/api/?key="+API_KEY+"&q="+encodeURIComponent('red roses');
 
